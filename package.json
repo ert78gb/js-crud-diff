@@ -1,0 +1,42 @@
+{
+  "name": "js-crud-diff",
+  "version": "1.0.0",
+  "description": "Simple object diff tool",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "nyc npm test",
+    "test:ci": "standard && mocha",
+    "standard-fix": "standard --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ert78gb/js-crud-diff.git"
+  },
+  "keywords": [
+    "javascript",
+    "diff"
+  ],
+  "author": "Robert Kiss <ert78gb@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ert78gb/js-crud-diff/issues"
+  },
+  "homepage": "https://github.com/ert78gb/js-crud-diff#readme",
+  "standard": {
+    "globals": [
+      "describe",
+      "it"
+    ]
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.43",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.0",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "nyc": "^11.2.1"
+  }
+}
