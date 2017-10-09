@@ -80,4 +80,4 @@ function isUndefined (o) {
   return typeof o === 'undefined'
 }
 
-module.exports = exports = diff
+module.exports.diff = diff
