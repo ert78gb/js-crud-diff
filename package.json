@@ -1,6 +1,6 @@
 {
   "name": "js-crud-diff",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Simple object diff tool",
   "main": "src/index.js",
   "types": "./src/index.d.ts",
@@ -35,9 +35,9 @@
     "@types/mocha": "^2.2.43",
     "chai": "^4.1.2",
     "mocha": "^4.0.0",
+    "nyc": "^11.2.1",
     "standard": "^10.0.3"
   },
   "dependencies": {
-    "nyc": "^11.2.1"
   }
 }
