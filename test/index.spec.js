@@ -1,5 +1,5 @@
 const chai = require('chai')
-const diff = require('../src')
+const diff = require('../src').diff
 
 const expect = chai.expect
 
