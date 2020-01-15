@@ -58,6 +58,10 @@ describe('js-crud-diff', () => {
     it('both object false', () => {
       tester(false, false, null)
     })
+
+    it('both object Date', () => {
+      tester(new Date(2000, 0, 1), new Date(2000, 0, 1), null)
+    })
   })
 
   describe('should return "created"', () => {
@@ -84,6 +88,10 @@ describe('js-crud-diff', () => {
     it('when old is undefined and new object has a boolean property', () => {
       tester(undefined, { a: true }, { created: { a: true } })
     })
+
+    it('when old is undefined and new object has a Date property', () => {
+      tester(undefined, { a: new Date(2000, 0, 1) }, { created: { a: new Date(2000, 0, 1) } })
+    })
   })
 
   describe('should return "deleted"', () => {
@@ -108,6 +116,10 @@ describe('js-crud-diff', () => {
 
     it('when old property is boolean new object is undefined', () => {
       tester({ a: true }, undefined, { deleted: { a: true } })
+    })
+
+    it('when old property is Date new object is undefined', () => {
+      tester({ a: new Date(2000, 0, 1) }, undefined, { deleted: { a: new Date(2000, 0, 1) } })
     })
   })
 
@@ -158,6 +170,42 @@ describe('js-crud-diff', () => {
 
     it('when old value is string and new value is booleand', () => {
       tester({ a: '' }, { a: true }, { a: { before: '', after: true } })
+    })
+
+    it('when old and new property are date but different', () => {
+      tester({ a: new Date(2000, 0, 1) }, { a: new Date(2000, 0, 2) }, { a: { before: new Date(2000, 0, 1), after: new Date(2000, 0, 2) } })
+    })
+
+    it('when old value is string and new value is Date', () => {
+      tester({ a: '' }, { a: new Date(2000, 0, 1) }, { a: { before: '', after: new Date(2000, 0, 1) } })
+    })
+
+    it('when old value is Date and new value is string', () => {
+      tester({ a: new Date(2000, 0, 1) }, { a: '' }, { a: { before: new Date(2000, 0, 1), after: '' } })
+    })
+
+    it('when old value is true and new value is Date', () => {
+      tester({ a: true }, { a: new Date(2000, 0, 1) }, { a: { before: true, after: new Date(2000, 0, 1) } })
+    })
+
+    it('when old value is Date and new value is true', () => {
+      tester({ a: new Date(2000, 0, 1) }, { a: true }, { a: { before: new Date(2000, 0, 1), after: true } })
+    })
+
+    it('when old value is false and new value is Date', () => {
+      tester({ a: false }, { a: new Date(2000, 0, 1) }, { a: { before: false, after: new Date(2000, 0, 1) } })
+    })
+
+    it('when old value is Date and new value is false', () => {
+      tester({ a: new Date(2000, 0, 1) }, { a: false }, { a: { before: new Date(2000, 0, 1), after: false } })
+    })
+
+    it('when old value is number and new value is Date', () => {
+      tester({ a: 112 }, { a: new Date(2000, 0, 1) }, { a: { before: 112, after: new Date(2000, 0, 1) } })
+    })
+
+    it('when old value is Date and new value is number', () => {
+      tester({ a: new Date(2000, 0, 1) }, { a: 112 }, { a: { before: new Date(2000, 0, 1), after: 112 } })
     })
   })
 

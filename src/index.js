@@ -9,6 +9,15 @@ function diff (obj1, obj2) {
     throw new Error('Invalid argument. Function given, object expected.')
   }
 
+  if (isDate(obj1) && isDate(obj2)) {
+    if (obj1.getTime() === obj2.getTime()) { return null }
+
+    return {
+      before: obj1,
+      after: obj2
+    }
+  }
+
   if (isValue(obj1) || isValue(obj2)) {
     if (obj1 === obj2) { return null }
 
@@ -73,11 +82,15 @@ function isObject (o) {
 }
 
 function isValue (value) {
-  return value === undefined || (!isObject(value) && !Array.isArray(value))
+  return value === undefined || (!isObject(value) && !Array.isArray(value)) || isDate(value)
 }
 
 function isUndefined (o) {
   return typeof o === 'undefined'
+}
+
+function isDate (value) {
+  return value instanceof Date || Object.prototype.toString.call(value) === '[object Date]'
 }
 
 module.exports.diff = diff
