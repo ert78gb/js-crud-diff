@@ -7,7 +7,7 @@
   "scripts": {
     "test": "mocha",
     "coverage": "nyc npm test",
-    "test:ci": "standard && mocha",
+    "lint": "standard",
     "standard-fix": "standard --fix"
   },
   "repository": {
