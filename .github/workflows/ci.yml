@@ -10,12 +10,12 @@ on:
 
 jobs:
   test:
-    name: Test on ${{ matrix.os }}
+    name: Test on ${{ matrix.node }}
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node: [10, 12, 14]
+        node: [12, 14, 16]
 
     steps:
       - uses: actions/checkout@v2
