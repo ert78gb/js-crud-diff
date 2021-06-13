@@ -1,6 +1,6 @@
 {
   "name": "js-crud-diff",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "description": "Simple object diff tool",
   "main": "src/index.js",
   "types": "./src/index.d.ts",
