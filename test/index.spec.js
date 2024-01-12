@@ -1,7 +1,6 @@
-const chai = require('chai')
-const diff = require('../src').diff
+const assert = require('node:assert/strict')
 
-const expect = chai.expect
+const diff = require('../src').diff
 
 const noop = () => {}
 
@@ -360,9 +359,9 @@ describe('js-crud-diff', () => {
 })
 
 function tester (obj1, obj2, expected) {
-  expect(diff(obj1, obj2)).to.be.deep.equal(expected)
+  assert.deepEqual(diff(obj1, obj2), expected)
 }
 
 function errorTester (obj1, obj2) {
-  expect(diff.bind(null, obj1, obj2)).to.throw('Invalid argument. Function given, object expected.')
+  assert.throws(() => diff(obj1, obj2), new Error('Invalid argument. Function given, object expected.'))
 }
